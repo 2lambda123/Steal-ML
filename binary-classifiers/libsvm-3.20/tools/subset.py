@@ -102,10 +102,10 @@ def main(argv=sys.argv):
 	prev_selected_linenum = -1
 	for i in xrange(len(selected_lines)):
 		for cnt in xrange(selected_lines[i]-prev_selected_linenum-1):
-			line = dataset.readline()
+			line = dataset.readline(5_000_000)
 			if rest_file: 
 				rest_file.write(line)
-		subset_file.write(dataset.readline())
+		subset_file.write(dataset.readline(5_000_000))
 		prev_selected_linenum = selected_lines[i]
 	subset_file.close()
 
